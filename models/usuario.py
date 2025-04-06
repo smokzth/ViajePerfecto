@@ -9,6 +9,6 @@ class Usuario:
         self.itinerarios: list[Itinerario] = itinerarios
 
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Usuario: {self.nombre}, Preferencias: {', '.join(self.preferencias)}, Presupuesto: ${self.presupuesto_maximo}"
 
