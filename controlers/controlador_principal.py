@@ -21,7 +21,7 @@ class ControladorPrincipal:
                 else:
                     self.vista.mostrar_mensaje("Primero debes crear un usuario.")
 
-            elif opcion == "2":
+            elif opcion == "3":
                 self.vista.mostrar_mensaje("¡Graciar por usar Viaje Perfecto! ")
                 break
             else:
