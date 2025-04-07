@@ -8,7 +8,7 @@ class ControladorPrincipal:
         self.usuario = None
 
     def ejecutar(self):
-        while true:
+        while True:
             self.vista.mostrar_menu_principal()
             opcion = input("Seleccione una opción: ")
 
@@ -26,3 +26,7 @@ class ControladorPrincipal:
                 break
             else:
                 self.vista.mostrar_mensaje("Opción no válida. Intente de nuevo. ")
+    def crear_usuario(self):
+        nombre, preferencias, presupuesto = self.vista.solicitar_datos_usuario()
+        self.usuario = Usuario(nombre, preferencias, presupuesto, [])
+        self.vista.mostrar_mensaje(f"Usuario: {nombre} creado exitosamente. ")
