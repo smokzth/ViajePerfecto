@@ -12,4 +12,14 @@ class VistaConsola:
         presupuesto=float(input("Presupusto máximo:"))
         return nombre,[p.strip()for p in preferencias],presupuesto
 
+    def mostrar_itinerarios(self, itinerarios):
+        print(("\n---Itinerarios---"))
+        if not itinerarios:
+            print("No hay itinerarios registrados")
+        else:
+            for i, it in enumerate(itinerarios, 1):
+                print(f"{i}.{it.nombre}- Avtividades:{len(it.actividades)}")
+
+
+
 
