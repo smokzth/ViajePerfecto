@@ -37,6 +37,6 @@ class ControladorPrincipal:
 
     def crear_itinerario(self):
         nombre, presupuesto = self.vista.solicitar_datos_itinerario()
-        nuevo_itinerario = Itinerario(nombre, [], presupuesto)
+        nuevo_itinerario = Itinerario(nombre, self.usuario.nombre, [], [])
         self.usuario.itinerarios.append(nuevo_itinerario)
         self.vista.mostrar_mensaje(f"Itinerario: {nombre } creado exitosamente.")

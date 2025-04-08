@@ -7,7 +7,8 @@ class Itinerario:
         self.nombre: str = nombre
         self.usuario: str = usuario
         self.actividades: List[Actividad] = actividades
-        self.diario: List[EntradaDiario] = diario
+        self.diario: List[EntradaDiario] = diario if diario is not None else []
+
 
     def agregar_actividad(self, actividad: Actividad) -> None:
         self.actividades.append(actividad)

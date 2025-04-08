@@ -13,7 +13,7 @@ class VistaConsola:
         presupuesto = float(input("Presupuesto máximo: "))
         return nombre, [p.strip() for p in preferencias], presupuesto
 
-    def solicutar_datos_itinerario(self):
+    def solicitar_datos_itinerario(self):
         print("\n---Crear Itinerario:---")
         nombre=input("Nombre del itinerario:")
         presupuesto=float(input("Presupuesto del itinerario"))
