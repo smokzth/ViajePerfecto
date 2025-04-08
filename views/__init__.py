@@ -20,6 +20,7 @@ class VistaConsola:
             for i, it in enumerate(itinerarios, 1):
                 print(f"{i}.{it.nombre}- Avtividades:{len(it.actividades)}")
 
-
+    def mostrar_mensaje(self,mensaje):
+        print(f"\n{mensaje}")
 
 
