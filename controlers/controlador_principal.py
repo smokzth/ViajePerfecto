@@ -1,3 +1,4 @@
+from models.actividad import Actividad
 from models.usuario import Usuario
 from models.itinerario import  Itinerario
 from views.vista_consola import VistaConsola
@@ -29,7 +30,7 @@ class ControladorPrincipal:
 
             elif opcion == "4":
                 if self.usuario and self.usuario.itinerarios:
-                    self.agregar_acividad_a_itinerario()
+                    self.agregar_actividad_a_itinerario()
 
                 else:
                     self.vista.mostrar_mensaje(" Debes crear un usuario e itinerario primero. ")
@@ -50,3 +51,20 @@ class ControladorPrincipal:
         self.usuario.itinerarios.append(nuevo_itinerario)
         self.vista.mostrar_mensaje(f"Itinerario: {nombre } creado exitosamente.")
 
+    def agregar_actividad_a_itinerario(self):
+        self.vista.mostrar_mensaje("\n--- Itinerarios Disponibles ---")
+        for idx, itinerario in enumerate(self.usuario.itinerarios):
+            print (f" {idx + 1}. {itinerario.nombre}")
+
+        seleccion = int(input("Selecciona el número del itinerario ")) -1
+
+        if 0 <= seleccion < len(self.usuario.itinerarios):
+            itinerario = self.usuario.itinerarios[seleccion]
+
+            datos = self.vista.solicitar_datos_actividad()
+            nueva_actividad = Actividad(*datos)
+
+            itinerario.agregar_actividad(nueva_actividad)
+            self.vista.mostrar_mensaje(f"Actividad {nueva_actividad.nombre} agregada a {itinerario.nombre}. ")
+        else:
+            self.vista.mostrar_mensaje("Selección no válida.")
