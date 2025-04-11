@@ -5,7 +5,8 @@ class VistaConsola:
         print("2. Ver itinerarios")
         print("3. Crear itinerario")
         print("4. Agregar actividad a itinerario")
-        print("5. Salir")
+        print("5. Ver actividades de un itinerario.")
+        print("6. Salir")
 
     def solicitar_datos_usuario(self):
         print("\n--- Registro de Usuario ---")
@@ -38,6 +39,27 @@ class VistaConsola:
         latitud= float(input("Latitud: "))
         longitud= float(input("Longitud: "))
         return nombre, descripcion, ubicacion, costo, categoria, latitud, longitud
+
+    def seleccionar_itinerario(self, itinerarios):
+        print("\n--- Selecciona un itinerario ---")
+        for idx, itinerario in enumerate(itinerarios):
+            print(f"{idx +1}. {itinerario.nombre}")
+        opcion = int(input("Número del itinerario: ")) - 1
+        return itinerarios[opcion]
+
+    def mostrar_actividades(self, actividades):
+        print("\n--- Actividades del Itinerario ---")
+        if not actividades:
+            print("No hay actividades registradas en este itinerario.")
+        else:
+            for actividad in actividades:
+                print(f"📍 Nombre: {actividad.nombre}")
+                print(f"📝 Descripción: {actividad.descripcion}")
+                print(f"📍 Ubicación: {actividad.ubicacion}")
+                print(f"💰 Costo: ${actividad.costo}")
+                print(f"📂 Categoría: {actividad.categoria}")
+                print(f"🌐 Coordenadas: ({actividad.latitud}, {actividad.longitud})")
+                print("------------------------------------------------")
 
     def mostrar_mensaje(self, mensaje):
         print(f"\n{mensaje}")

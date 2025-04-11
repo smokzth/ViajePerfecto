@@ -36,6 +36,9 @@ class ControladorPrincipal:
                     self.vista.mostrar_mensaje(" Debes crear un usuario e itinerario primero. ")
 
             elif opcion == "5":
+                self.ver_actividades_de_itinerario()
+
+            elif opcion == "6":
                 self.vista.mostrar_mensaje("¡Graciar por usar Viaje Perfecto! ")
                 break
             else:
@@ -68,3 +71,10 @@ class ControladorPrincipal:
             self.vista.mostrar_mensaje(f"Actividad {nueva_actividad.nombre} agregada a {itinerario.nombre}. ")
         else:
             self.vista.mostrar_mensaje("Selección no válida.")
+
+    def ver_actividades_de_itinerario(self):
+        if self.usuario and self.usuario.itinerarios:
+            itinerario = self.vista.seleccionar_itinerario(self.usuario.itinerarios)
+            self.vista.mostrar_actividades(itinerario.actividades)
+        else:
+            self.vista.mostrar_mensaje("Debes crear un usuario e itinerario primero.")
