@@ -20,12 +20,21 @@ class ControladorPrincipal:
                     self.vista.mostrar_itinerarios(self.usuario.itinerarios)
                 else:
                     self.vista.mostrar_mensaje("Primero debes crear un usuario.")
+
             elif opcion == "3":
                 if self.usuario:
                     self.crear_itinerario()
                 else:
                     self.vista.mostrar_mensaje("Primero debes crear un usuario.")
+
             elif opcion == "4":
+                if self.usuario and self.usuario.itinerarios:
+                    self.agregar_acividad_a_itinerario()
+
+                else:
+                    self.vista.mostrar_mensaje(" Debes crear un usuario e itinerario primero. ")
+
+            elif opcion == "5":
                 self.vista.mostrar_mensaje("¡Graciar por usar Viaje Perfecto! ")
                 break
             else:
@@ -40,3 +49,4 @@ class ControladorPrincipal:
         nuevo_itinerario = Itinerario(nombre, self.usuario.nombre, [], [])
         self.usuario.itinerarios.append(nuevo_itinerario)
         self.vista.mostrar_mensaje(f"Itinerario: {nombre } creado exitosamente.")
+
