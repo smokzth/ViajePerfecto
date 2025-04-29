@@ -8,6 +8,12 @@ class Usuario:
         self.presupuesto_maximo: float = presupuesto_maximo
         self.itinerarios: list[Itinerario] = itinerarios
 
+    def to_dict(self):
+        return {
+            "nombre": self.nombre,
+            "preferencias": self.preferencias,
+            "presupuesto_maximo": self.presupuesto_maximo
+        }
 
     def __str__(self) -> str:
         return f"Usuario: {self.nombre}, Preferencias: {', '.join(self.preferencias)}, Presupuesto: ${self.presupuesto_maximo}"

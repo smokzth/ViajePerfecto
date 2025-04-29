@@ -1,0 +1,16 @@
+[
+    {
+        "nombre": "juan",
+        "preferencias": [
+            "mar"
+        ],
+        "presupuesto_maximo": 2000.0
+    },
+    {
+        "nombre": "juano",
+        "preferencias": [
+            "12"
+        ],
+        "presupuesto_maximo": 12.0
+    }
+]
