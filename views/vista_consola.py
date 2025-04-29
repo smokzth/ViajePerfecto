@@ -1,12 +1,14 @@
 class VistaConsola:
     def mostrar_menu_principal(self):
         print("\n--- BIENVENIDO A VIAJE PERFECTO ---")
-        print("1. Crear nuevo usuario")
-        print("2. Ver itinerarios")
-        print("3. Crear itinerario")
-        print("4. Agregar actividad a itinerario")
+        print("1. Crear nuevo usuario.")
+        print("2. Ver itinerarios.")
+        print("3. Crear itinerario.")
+        print("4. Agregar actividad a itinerario.")
         print("5. Ver actividades de un itinerario.")
-        print("6. Salir")
+        print("6. Agregar entrada al diario de viaje.")
+        print("7. Ver entradas del diario.")
+        print("8. Sair.")
 
     def solicitar_datos_usuario(self):
         print("\n--- Registro de Usuario ---")
@@ -61,12 +63,30 @@ class VistaConsola:
                 print(f"🌐 Coordenadas: ({actividad.latitud}, {actividad.longitud})")
                 print("------------------------------------------------")
 
-    def soliciar_datos_entrada_diario(self):
-        print("\n--- Nueva Entrada en el Diario ---")
-        titulo = input("Título: ")
-        contenido = input("Contenido: ")
+    def solicitar_datos_entrada_diario(self):
+        print("\n--- Agregar entrada al diario ---")
+        actividad = input("Nombre de la actividad: ")
         fecha = input("Fecha (YYYY-MM-DD): ")
-        return titulo, contenido, fecha
+        nota = input("Escribe tu nota o experiencia: ")
+
+        while True:
+            try:
+                calificacion = float(input("Calificación (0.0 a 5.0): "))
+                break
+            except ValueError:
+                print("Por favor, ingresa un número válido.")
+
+        ruta_foto = input("Ruta de la foto (opcional): ")
+        return actividad, fecha, nota, calificacion, ruta_foto
+
+    def mostrar_diario(self, entradas):
+        print("\n--- Diario de Viaje ---")
+        if not entradas:
+            print("No hay entradas en el diario.")
+        else:
+            for entrada in entradas:
+                print(
+                    f"{entrada.fecha} - {entrada.actividad}: {entrada.nota} (Cal: {entrada.calificacion}, Foto: {entrada.ruta_foto})")
 
     def mostrar_mensaje(self, mensaje):
         print(f"\n{mensaje}")

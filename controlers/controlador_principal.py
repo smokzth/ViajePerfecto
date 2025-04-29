@@ -40,6 +40,12 @@ class ControladorPrincipal:
                 self.ver_actividades_de_itinerario()
 
             elif opcion == "6":
+                self.agregar_entrada_diario()
+
+            elif opcion == "7":
+                self.ver_entradas_diario()
+
+            elif opcion == "8":
                 self.vista.mostrar_mensaje("¡Graciar por usar Viaje Perfecto! ")
                 break
             else:
@@ -79,3 +85,24 @@ class ControladorPrincipal:
             self.vista.mostrar_actividades(itinerario.actividades)
         else:
             self.vista.mostrar_mensaje("Debes crear un usuario e itinerario primero.")
+
+    def agregar_entrada_diario(self):
+        if not self.usuario or not self.usuario.itinerarios:
+            print("\n Debes crear un usuario e itinerario primero.")
+            return
+
+        itinerario = self.vista.seleccionar_itinerario(self.usuario.itinerarios)
+        if itinerario:
+            actividad, fecha, nota, calificacion, ruta_foto = self.vista.solicitar_datos_entrada_diario()
+            nueva_entrada = EntradaDiario(actividad, fecha, nota, calificacion, ruta_foto)
+            itinerario.diario.append(nueva_entrada)
+            print("\nEntrada agregada al diario correctamente.")
+
+    def ver_entradas_diario(self):
+        if not self.usuario or not self.usuario.itinerarios:
+            self.vista.mostrar_mensaje("Debes crear un usuario e itinerario primero.")
+            return
+
+        itinerario = self.vista.seleccionar_itinerario(self.usuario.itinerarios)
+        if itinerario:
+            self.vista.mostrar_diario(itinerario.diario)
