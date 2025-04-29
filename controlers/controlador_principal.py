@@ -2,6 +2,7 @@ from models.actividad import Actividad
 from models.usuario import Usuario
 from models.itinerario import  Itinerario
 from views.vista_consola import VistaConsola
+from models.entrada_diario import EntradaDiario
 
 class ControladorPrincipal:
     def __init__(self):

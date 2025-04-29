@@ -61,5 +61,12 @@ class VistaConsola:
                 print(f"🌐 Coordenadas: ({actividad.latitud}, {actividad.longitud})")
                 print("------------------------------------------------")
 
+    def soliciar_datos_entrada_diario(self):
+        print("\n--- Nueva Entrada en el Diario ---")
+        titulo = input("Título: ")
+        contenido = input("Contenido: ")
+        fecha = input("Fecha (YYYY-MM-DD): ")
+        return titulo, contenido, fecha
+
     def mostrar_mensaje(self, mensaje):
         print(f"\n{mensaje}")
