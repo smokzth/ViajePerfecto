@@ -12,7 +12,8 @@ class Usuario:
         return {
             "nombre": self.nombre,
             "preferencias": self.preferencias,
-            "presupuesto_maximo": self.presupuesto_maximo
+            "presupuesto_maximo": self.presupuesto_maximo,
+            "itinerarios": [itinerario.to_dict() for itinerario in self.itinerarios]
         }
 
     def __str__(self) -> str:

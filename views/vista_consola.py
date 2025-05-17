@@ -1,70 +1,97 @@
 class VistaConsola:
     def mostrar_menu_principal(self):
-        print("\n--- BIENVENIDO A VIAJE PERFECTO ---")
-        print("1. Crear nuevo usuario.")
-        print("2. Ver itinerarios.")
-        print("3. Crear itinerario.")
-        print("4. Agregar actividad a itinerario.")
-        print("5. Ver actividades de un itinerario.")
-        print("6. Agregar entrada al diario de viaje.")
-        print("7. Ver entradas del diario.")
-        print("8. Sair.")
+        """Muestra el menú principal con todas las opciones disponibles"""
+        print("\n=== VIAJE PERFECTO ===")
+        print("1. Crear usuario")
+        print("2. Cargar usuario existente")
+        print("3. Eliminar usuario actual")
+        print("4. Crear itinerario")
+        print("5. Ver itinerarios disponibles")
+        print("6. Agregar actividad a itinerario")
+        print("7. Ver actividades de itinerario")
+        print("8. Agregar entrada al diario")
+        print("9. Ver entradas del diario")
+        print("10. Salir")
+        print("=" * 25)
 
+    # --- Métodos para Usuarios ---
     def solicitar_datos_usuario(self):
+        """Solicita los datos necesarios para crear un nuevo usuario"""
         print("\n--- Registro de Usuario ---")
         nombre = input("Nombre: ")
-        preferencias = input("Preferencias (separadas por coma): ").split(",")
-        presupuesto = float(input("Presupuesto máximo: "))
-        return nombre, [p.strip() for p in preferencias], presupuesto
+        preferencias = [p.strip() for p in input("Preferencias (separadas por coma): ").split(",")]
+        presupuesto = float(input("Presupuesto máximo: $"))
+        return nombre, preferencias, presupuesto
 
+    def mostrar_usuarios(self, usuarios):
+        """Muestra la lista de usuarios disponibles"""
+        print("\n--- USUARIOS REGISTRADOS ---")
+        for i, usuario in enumerate(usuarios, 1):
+            print(f"{i}. {usuario.nombre} (Itinerarios: {len(usuario.itinerarios)})")
+
+    def solicitar_confirmacion(self, mensaje):
+        """Solicita confirmación al usuario (s/n)"""
+        return input(f"\n{mensaje} (s/n): ").lower() == "s"
+
+    # --- Métodos para Itinerarios ---
     def solicitar_datos_itinerario(self):
-        print("\n---Crear Itinerario:---")
-        nombre=input("Nombre del itinerario:")
-        presupuesto=float(input("Presupuesto del itinerario"))
+        """Solicita los datos necesarios para crear un itinerario"""
+        print("\n--- Crear Itinerario ---")
+        nombre = input("Nombre del itinerario: ")
+        presupuesto = float(input("Presupuesto del itinerario: $"))
         return nombre, presupuesto
 
     def mostrar_itinerarios(self, itinerarios):
-        print("\n--- Itinerarios ---")
+        """Muestra la lista de itinerarios disponibles"""
+        print("\n--- ITINERARIOS ---")
         if not itinerarios:
-            print("No hay itinerarios Registrados.")
+            print("No hay itinerarios registrados.")
         else:
-            for i, it in enumerate(itinerarios, 1):
-                print(f"{i}. {it.nombre} - Actividades: {len(it.actividades)}")
-
-    def solicitar_datos_actividad(self):
-        print("\n--- Agregar actividad ---")
-        nombre= input("Nombre de la actividad: ")
-        descripcion= input("Descripción: ")
-        ubicacion= input("Ubicación: ")
-        costo= float(input("Costo: "))
-        categoria= input("Categoría (ej: aventura, cultural, relax): ")
-        latitud= float(input("Latitud: "))
-        longitud= float(input("Longitud: "))
-        return nombre, descripcion, ubicacion, costo, categoria, latitud, longitud
+            for i, itinerario in enumerate(itinerarios, 1):
+                print(f"{i}. {itinerario.nombre} - Actividades: {len(itinerario.actividades)}")
 
     def seleccionar_itinerario(self, itinerarios):
-        print("\n--- Selecciona un itinerario ---")
-        for idx, itinerario in enumerate(itinerarios):
-            print(f"{idx +1}. {itinerario.nombre}")
-        opcion = int(input("Número del itinerario: ")) - 1
-        return itinerarios[opcion]
+        """Permite seleccionar un itinerario de la lista"""
+        self.mostrar_itinerarios(itinerarios)
+        try:
+            opcion = int(input("\nNúmero del itinerario: ")) - 1
+            return itinerarios[opcion] if 0 <= opcion < len(itinerarios) else None
+        except ValueError:
+            return None
+
+    # --- Métodos para Actividades ---
+    def solicitar_datos_actividad(self):
+        """Solicita los datos necesarios para agregar una actividad"""
+        print("\n--- Agregar Actividad ---")
+        return (
+            input("Nombre de la actividad: "),
+            input("Descripción: "),
+            input("Ubicación: "),
+            float(input("Costo: $")),
+            input("Categoría (aventura/cultural/relax): "),
+            float(input("Latitud: ")),
+            float(input("Longitud: "))
+        )
 
     def mostrar_actividades(self, actividades):
-        print("\n--- Actividades del Itinerario ---")
+        """Muestra la lista de actividades de un itinerario"""
+        print("\n--- ACTIVIDADES ---")
         if not actividades:
-            print("No hay actividades registradas en este itinerario.")
+            print("No hay actividades registradas.")
         else:
-            for actividad in actividades:
-                print(f"📍 Nombre: {actividad.nombre}")
-                print(f"📝 Descripción: {actividad.descripcion}")
-                print(f"📍 Ubicación: {actividad.ubicacion}")
-                print(f"💰 Costo: ${actividad.costo}")
-                print(f"📂 Categoría: {actividad.categoria}")
-                print(f"🌐 Coordenadas: ({actividad.latitud}, {actividad.longitud})")
-                print("------------------------------------------------")
+            for i, actividad in enumerate(actividades, 1):
+                print(f"\n{i}. {actividad.nombre}")
+                print(f"   Descripción: {actividad.descripcion}")
+                print(f"   Ubicación: {actividad.ubicacion}")
+                print(f"   Costo: ${actividad.costo:.2f}")
+                print(f"   Categoría: {actividad.categoria}")
+                print(f"   Coordenadas: ({actividad.latitud}, {actividad.longitud})")
+                print("-" * 40)
 
+    # --- Métodos para Diario ---
     def solicitar_datos_entrada_diario(self):
-        print("\n--- Agregar entrada al diario ---")
+        """Solicita los datos necesarios para agregar una entrada al diario"""
+        print("\n--- Agregar Entrada al Diario ---")
         actividad = input("Nombre de la actividad: ")
         fecha = input("Fecha (YYYY-MM-DD): ")
         nota = input("Escribe tu nota o experiencia: ")
@@ -72,7 +99,9 @@ class VistaConsola:
         while True:
             try:
                 calificacion = float(input("Calificación (0.0 a 5.0): "))
-                break
+                if 0 <= calificacion <= 5:
+                    break
+                print("La calificación debe estar entre 0.0 y 5.0")
             except ValueError:
                 print("Por favor, ingresa un número válido.")
 
@@ -80,13 +109,20 @@ class VistaConsola:
         return actividad, fecha, nota, calificacion, ruta_foto
 
     def mostrar_diario(self, entradas):
-        print("\n--- Diario de Viaje ---")
+        """Muestra las entradas del diario de viaje"""
+        print("\n--- DIARIO DE VIAJE ---")
         if not entradas:
-            print("No hay entradas en el diario.")
+            print("No hay entradas registradas.")
         else:
-            for entrada in entradas:
-                print(
-                    f"{entrada.fecha} - {entrada.actividad}: {entrada.nota} (Cal: {entrada.calificacion}, Foto: {entrada.ruta_foto})")
+            for i, entrada in enumerate(entradas, 1):
+                print(f"\n📅 Entrada {i}: {entrada.actividad} - {entrada.fecha}")
+                print(f"   Nota: {entrada.nota}")
+                print(f"   Calificación: {entrada.calificacion}/5.0")
+                if entrada.ruta_foto:
+                    print(f"   Foto: {entrada.ruta_foto}")
+                print("-" * 40)
+
 
     def mostrar_mensaje(self, mensaje):
-        print(f"\n{mensaje}")
+        """Muestra un mensaje genérico al usuario"""
+        print(f"\nℹ️ {mensaje}")

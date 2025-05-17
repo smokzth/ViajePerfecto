@@ -1,16 +1,93 @@
 [
     {
-        "nombre": "juan",
+        "nombre": "Jose",
+        "preferencias": [
+            "Viaje con clima frio"
+        ],
+        "presupuesto_maximo": 2000.0,
+        "itinerarios": [
+            {
+                "nombre": "viaje al mar",
+                "usuario": "Jose",
+                "actividades": [
+                    {
+                        "nombre": "Salir a comer afuera del hotel",
+                        "descripcion": "se saldr\u00e1 a comer comida de mar en frente del hotel",
+                        "ubicacion": "Cartagena",
+                        "costo": 1000.0,
+                        "categoria": "Relax",
+                        "latitud": 10.0,
+                        "longitud": 10.0
+                    }
+                ],
+                "diario": []
+            }
+        ]
+    },
+    {
+        "nombre": "JUAN PABLO",
         "preferencias": [
             "mar"
         ],
-        "presupuesto_maximo": 2000.0
+        "presupuesto_maximo": 2000.0,
+        "itinerarios": [
+            {
+                "nombre": "viaje al mar",
+                "usuario": "JUAN PABLO",
+                "actividades": [
+                    {
+                        "nombre": "salir a comer",
+                        "descripcion": "comer en frente del hotel",
+                        "ubicacion": "cartagena",
+                        "costo": 30.0,
+                        "categoria": "relax",
+                        "latitud": 10.0,
+                        "longitud": 10.0
+                    }
+                ],
+                "diario": [
+                    {
+                        "actividad": "Comer",
+                        "fecha": "2000-12-24",
+                        "nota": "Super buena",
+                        "calificacion": 5.0,
+                        "ruta_foto": "No"
+                    }
+                ]
+            }
+        ]
     },
     {
-        "nombre": "juano",
+        "nombre": "Juan Pablo",
         "preferencias": [
-            "12"
+            "Mar"
         ],
-        "presupuesto_maximo": 12.0
+        "presupuesto_maximo": 2000.0,
+        "itinerarios": [
+            {
+                "nombre": "Viaje al mar",
+                "usuario": "Juan Pablo",
+                "actividades": [
+                    {
+                        "nombre": "Salir a comer",
+                        "descripcion": "Salir a comer al frente del hotel comida de amr",
+                        "ubicacion": "Cartagena",
+                        "costo": 40.0,
+                        "categoria": "Relax",
+                        "latitud": 10.0,
+                        "longitud": 10.0
+                    }
+                ],
+                "diario": [
+                    {
+                        "actividad": "Salir a comer ",
+                        "fecha": "2000-12-24",
+                        "nota": "Fue muy buena",
+                        "calificacion": 5.0,
+                        "ruta_foto": "Na"
+                    }
+                ]
+            }
+        ]
     }
 ]

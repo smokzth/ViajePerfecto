@@ -16,6 +16,14 @@ class Itinerario:
     def agregar_entrada_diario(self, entrada: EntradaDiario) -> None:
         self.diario.append(entrada)
 
+    def to_dict(self) -> dict:
+        return {
+            "nombre": self.nombre,
+            "usuario": self.usuario,
+            "actividades": [actividad.to_dict() for actividad in self.actividades],
+            "diario": [entrada.to_dict() for entrada in self.diario]
+        }
+
     def __str__(self) -> str:
         return (f"Itinerario: {self.nombre}\n"
                 f" para {self.usuario}\n"
