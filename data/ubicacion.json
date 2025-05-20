@@ -1,0 +1,80 @@
+[
+  {
+    "nombre": "Cartagena",
+    "pais": "Colombia",
+    "latitud": 10.391,
+    "longitud": -75.4794,
+    "tipo_clima": "cálido",
+    "categorias": ["mar", "historia", "relax"],
+    "atracciones": [
+      "Murallas de Cartagena",
+      "Playa Blanca",
+      "Castillo San Felipe"
+    ]
+  },
+  {
+    "nombre": "Santa Marta",
+    "pais": "Colombia",
+    "latitud": 11.2419,
+    "longitud": -74.2057,
+    "tipo_clima": "cálido",
+    "categorias": ["mar", "aventura", "naturaleza"],
+    "atracciones": [
+      "Parque Tayrona",
+      "Sierra Nevada",
+      "Taganga"
+    ]
+  },
+  {
+    "nombre": "Medellín",
+    "pais": "Colombia",
+    "latitud": 6.2442,
+    "longitud": -75.5812,
+    "tipo_clima": "templado",
+    "categorias": ["cultura", "naturaleza", "ciudad"],
+    "atracciones": [
+      "Comuna 13",
+      "Jardín Botánico",
+      "Pueblito Paisa"
+    ]
+  },
+  {
+    "nombre": "Bogotá",
+    "pais": "Colombia",
+    "latitud": 4.711,
+    "longitud": -74.0721,
+    "tipo_clima": "frío",
+    "categorias": ["cultura", "ciudad", "historia"],
+    "atracciones": [
+      "Museo del Oro",
+      "Monserrate",
+      "La Candelaria"
+    ]
+  },
+  {
+    "nombre": "Villa de Leyva",
+    "pais": "Colombia",
+    "latitud": 5.6346,
+    "longitud": -73.5241,
+    "tipo_clima": "frío",
+    "categorias": ["historia", "relax", "naturaleza"],
+    "atracciones": [
+      "Plaza Mayor",
+      "Museo Paleontológico",
+      "Pozos Azules"
+    ]
+  },
+  {
+    "nombre": "San Andrés",
+    "pais": "Colombia",
+    "latitud": 12.5847,
+    "longitud": -81.7006,
+    "tipo_clima": "cálido",
+    "categorias": ["mar", "relax", "naturaleza"],
+    "atracciones": [
+      "Johnny Cay",
+      "La Piscinita",
+      "Hoyo Soplador"
+    ]
+  }
+]
