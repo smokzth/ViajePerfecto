@@ -1,38 +1,5 @@
 [
     {
-        "nombre": "Juan Pablo",
-        "preferencias": [
-            "Mar"
-        ],
-        "presupuesto_maximo": 2000.0,
-        "itinerarios": [
-            {
-                "nombre": "Viaje al mar",
-                "usuario": "Juan Pablo",
-                "actividades": [
-                    {
-                        "nombre": "Salir a comer",
-                        "descripcion": "Salir a comer al frente del hotel comida de amr",
-                        "ubicacion": "Cartagena",
-                        "costo": 40.0,
-                        "categoria": "Relax",
-                        "latitud": 10.0,
-                        "longitud": 10.0
-                    }
-                ],
-                "diario": [
-                    {
-                        "actividad": "Salir a comer ",
-                        "fecha": "2000-12-24",
-                        "nota": "Fue muy buena",
-                        "calificacion": 5.0,
-                        "ruta_foto": "Na"
-                    }
-                ]
-            }
-        ]
-    },
-    {
         "nombre": "juan",
         "preferencias": [
             "mar"
@@ -108,6 +75,46 @@
                         "nota": "Super buena",
                         "calificacion": 5.0,
                         "ruta_foto": "No"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "nombre": "Juan Pablo",
+        "preferencias": [
+            "Mar"
+        ],
+        "presupuesto_maximo": 2000.0,
+        "itinerarios": [
+            {
+                "nombre": "Viaje al mar",
+                "usuario": "Juan Pablo",
+                "actividades": [
+                    {
+                        "nombre": "Salir a comer",
+                        "descripcion": "Salir a comer al frente del hotel comida de amr",
+                        "ubicacion": "Cartagena",
+                        "costo": 40.0,
+                        "categoria": "Relax",
+                        "latitud": 10.0,
+                        "longitud": 10.0
+                    }
+                ],
+                "diario": [
+                    {
+                        "actividad": "Salir a comer ",
+                        "fecha": "2000-12-24",
+                        "nota": "Fue muy buena",
+                        "calificacion": 5.0,
+                        "ruta_foto": "Na"
+                    },
+                    {
+                        "actividad": "Salir a comer",
+                        "fecha": "2025-02-19",
+                        "nota": "Buena",
+                        "calificacion": 5.0,
+                        "ruta_foto": "Na"
                     }
                 ]
             }

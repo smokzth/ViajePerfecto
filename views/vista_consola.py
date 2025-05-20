@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class VistaConsola:
     def mostrar_menu_principal(self):
         """Muestra el menú principal con todas las opciones disponibles"""
@@ -122,7 +124,15 @@ class VistaConsola:
         """Solicita los datos necesarios para agregar una entrada al diario"""
         print("\n--- Agregar Entrada al Diario ---")
         actividad = input("Nombre de la actividad: ")
-        fecha = input("Fecha (YYYY-MM-DD): ")
+
+        while True:
+            fecha = input("Fecha (YYYY-MM-DD): ")
+            try:
+                datetime.strptime(fecha, "%Y-%m-%d")
+                break
+            except ValueError:
+                print("❌ Fecha inválida. Usa el formato YYYY-MM-DD (ejemplo: 2025-05-20).")
+
         nota = input("Escribe tu nota o experiencia: ")
 
         while True:
