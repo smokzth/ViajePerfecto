@@ -165,3 +165,4 @@ class VistaConsola:
     def mostrar_mensaje(self, mensaje):
         """Muestra un mensaje genérico al usuario"""
         print(f"\nℹ️ {mensaje}")
+
