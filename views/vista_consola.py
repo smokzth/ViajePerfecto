@@ -20,7 +20,12 @@ class VistaConsola:
         print("\n--- Registro de Usuario ---")
         nombre = input("Nombre: ")
         preferencias = [p.strip() for p in input("Preferencias (separadas por coma): ").split(",")]
-        presupuesto = float(input("Presupuesto máximo: $"))
+        while True:
+            try:
+                presupuesto = float(input("Presupuesto máximo: $"))
+                break
+            except ValueError:
+                print("❌ Entrada inválida. Ingresa un número válido para el presupuesto.")
         return nombre, preferencias, presupuesto
 
     def mostrar_usuarios(self, usuarios):
@@ -38,7 +43,13 @@ class VistaConsola:
         """Solicita los datos necesarios para crear un itinerario"""
         print("\n--- Crear Itinerario ---")
         nombre = input("Nombre del itinerario: ")
-        presupuesto = float(input("Presupuesto del itinerario: $"))
+
+        while True:
+            try:
+                presupuesto = float(input("Presupuesto del itinerario: $"))
+                break
+            except ValueError:
+                print("❌ Entrada inválida. Ingresa un número válido para el presupuesto.")
         return nombre, presupuesto
 
     def mostrar_itinerarios(self, itinerarios):
@@ -63,15 +74,33 @@ class VistaConsola:
     def solicitar_datos_actividad(self):
         """Solicita los datos necesarios para agregar una actividad"""
         print("\n--- Agregar Actividad ---")
-        return (
-            input("Nombre de la actividad: "),
-            input("Descripción: "),
-            input("Ubicación: "),
-            float(input("Costo: $")),
-            input("Categoría (aventura/cultural/relax): "),
-            float(input("Latitud: ")),
-            float(input("Longitud: "))
-        )
+        nombre = input("Nombre de la actividad: ")
+        descripcion = input("Descripción: ")
+        ubicacion = input("Ubicación: ")
+        categoria = input("Categoría (aventura/cultural/relax): ")
+
+        while True:
+            try:
+                costo = float(input("Costo: $"))
+                break
+            except ValueError:
+                print("❌ Ingresa un valor numérico válido para el costo.")
+
+        while True:
+            try:
+                latitud = float(input("Latitud: "))
+                break
+            except ValueError:
+                print("❌ Ingresa un valor numérico válido para la latitud.")
+
+        while True:
+            try:
+                longitud = float(input("Longitud: "))
+                break
+            except ValueError:
+                print("❌ Ingresa un valor numérico válido para la longitud.")
+
+        return nombre, descripcion, ubicacion, costo, categoria, latitud, longitud
 
     def mostrar_actividades(self, actividades):
         """Muestra la lista de actividades de un itinerario"""
