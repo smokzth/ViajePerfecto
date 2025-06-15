@@ -8,37 +8,6 @@
         "itinerarios": []
     },
     {
-        "nombre": "Jose",
-        "preferencias": [
-            "Viaje con clima frio"
-        ],
-        "presupuesto_maximo": 2000.0,
-        "itinerarios": [
-            {
-                "nombre": "viaje al mar",
-                "usuario": "Jose",
-                "actividades": [
-                    {
-                        "nombre": "Salir a comer afuera del hotel",
-                        "descripcion": "se saldr\u00e1 a comer comida de mar en frente del hotel",
-                        "ubicacion": "Cartagena",
-                        "costo": 1000.0,
-                        "categoria": "Relax",
-                        "latitud": 10.0,
-                        "longitud": 10.0
-                    }
-                ],
-                "diario": []
-            },
-            {
-                "nombre": "as",
-                "usuario": "Jose",
-                "actividades": [],
-                "diario": []
-            }
-        ]
-    },
-    {
         "nombre": "JUAN PABLO",
         "preferencias": [
             "mar"
@@ -117,6 +86,37 @@
                         "ruta_foto": "Na"
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "nombre": "Jose",
+        "preferencias": [
+            "Viaje con clima frio"
+        ],
+        "presupuesto_maximo": 2000.0,
+        "itinerarios": [
+            {
+                "nombre": "viaje al mar",
+                "usuario": "Jose",
+                "actividades": [
+                    {
+                        "nombre": "Salir a comer afuera del hotel",
+                        "descripcion": "se saldr\u00e1 a comer comida de mar en frente del hotel",
+                        "ubicacion": "Cartagena",
+                        "costo": 1000.0,
+                        "categoria": "Relax",
+                        "latitud": 10.0,
+                        "longitud": 10.0
+                    }
+                ],
+                "diario": []
+            },
+            {
+                "nombre": "as",
+                "usuario": "Jose",
+                "actividades": [],
+                "diario": []
             }
         ]
     }

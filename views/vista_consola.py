@@ -4,17 +4,34 @@ class VistaConsola:
     def mostrar_menu_principal(self):
         """Muestra el menú principal con todas las opciones disponibles"""
         print("\n=== VIAJE PERFECTO ===")
+        print("═" * 25)
+        print("👤 GESTIÓN DE USUARIOS")
         print("1. Crear usuario")
         print("2. Cargar usuario existente")
         print("3. Eliminar usuario actual")
+        print("═" * 25)
+        print("🗺️ GESTIÓN DE ITINERARIOS")
         print("4. Crear itinerario")
         print("5. Ver itinerarios disponibles")
+        print("═" * 25)
+        print("🎯 ACTIVIDADES")
         print("6. Agregar actividad a itinerario")
         print("7. Ver actividades de itinerario")
-        print("8. Agregar entrada al diario")
-        print("9. Ver entradas del diario")
-        print("10. Salir")
-        print("=" * 25)
+        print("8. Filtrar actividades por categoría")
+        print("9. Optimizar rutas de actividades")
+        print("═" * 25)
+        print("📔 DIARIO DE VIAJE")
+        print("10. Agregar entrada al diario")
+        print("11. Ver entradas del diario")
+        print("═" * 25)
+        print("💰 GESTIÓN FINANCIERA")
+        print("12. Ver resumen de gastos")
+        print("═" * 25)
+        print("📤 EXPORTACIÓN")
+        print("13. Exportar itinerario")
+        print("═" * 25)
+        print("0. Salir")
+        print("═" * 25)
 
     # --- Métodos para Usuarios ---
     def solicitar_datos_usuario(self):
@@ -42,17 +59,16 @@ class VistaConsola:
 
     # --- Métodos para Itinerarios ---
     def solicitar_datos_itinerario(self):
-        """Solicita los datos necesarios para crear un itinerario"""
         print("\n--- Crear Itinerario ---")
         nombre = input("Nombre del itinerario: ")
-
         while True:
             try:
                 presupuesto = float(input("Presupuesto del itinerario: $"))
-                break
+                if presupuesto >= 0:
+                    return nombre, presupuesto
+                print("❌ El presupuesto no puede ser negativo")
             except ValueError:
-                print("❌ Entrada inválida. Ingresa un número válido para el presupuesto.")
-        return nombre, presupuesto
+                print("❌ Ingrese un número válido")
 
     def mostrar_itinerarios(self, itinerarios):
         """Muestra la lista de itinerarios disponibles"""
@@ -160,6 +176,21 @@ class VistaConsola:
                 if entrada.ruta_foto:
                     print(f"   Foto: {entrada.ruta_foto}")
                 print("-" * 40)
+
+    def mostrar_resumen_gastos(self):
+        if not self._validar_usuario_y_itinerarios():
+            return
+
+        for itinerario in self.usuario.itinerarios:
+            total = sum(act.costo for act in itinerario.actividades)
+            disponible = itinerario.presupuesto - total
+            self.vista.mostrar_mensaje(
+                f"\n💰 ITINERARIO: {itinerario.nombre.upper()}\n"
+                f"   Presupuesto total: ${itinerario.presupuesto:.2f}\n"
+                f"   Gastos realizados: ${total:.2f}\n"
+                f"   Saldo disponible: ${disponible:.2f}\n"
+                f"   Porcentaje utilizado: {(total / itinerario.presupuesto) * 100:.1f}%"
+            )
 
 
     def mostrar_mensaje(self, mensaje):

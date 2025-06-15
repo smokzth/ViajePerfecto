@@ -3,11 +3,12 @@ from models.actividad import Actividad
 from models.entrada_diario import EntradaDiario
 
 class Itinerario:
-    def __init__(self, nombre: str, usuario: str, actividades: list[Actividad], diario: list[EntradaDiario]):
+    def __init__(self, nombre: str, usuario: str, actividades: list[Actividad], diario: list[EntradaDiario], presupuesto: float = 0.0):
         self.nombre: str = nombre
         self.usuario: str = usuario
         self.actividades: List[Actividad] = actividades
         self.diario: List[EntradaDiario] = diario if diario is not None else []
+        self.presupuesto = presupuesto
 
 
     def agregar_actividad(self, actividad: Actividad) -> None:
