@@ -144,3 +144,27 @@ class VistaGrafica:
                         f" Foto: {e.ruta_foto or 'Ninguna'}\n" + "-"*40)
             messagebox.showinfo("Diario de viaje", msg)
 
+    def mostrar_mensaje(self, mensaje):
+        messagebox.showinfo("Mensaje", mensaje)
+
+    def limpiar_frame(self):
+        for widget in self.frame.winfo_children():
+            widget.destroy()
+
+    def no_implementado(self):
+        messagebox.showinfo("En desarrollo", "Esta opción aún no está implementada.")
+
+# Para probarla:
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = VistaGrafica(root)
+    root.mainloop()
+
+
+    asda
+    asd
+    asdasd
+    asd
+    sda
+    asd
+    asd
